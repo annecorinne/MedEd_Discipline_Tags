@@ -1,0 +1,67 @@
+################################################################################################
+TITLE: Text Mining Solutions for Tagging and Distributing Open-Ended Feedback
+AUTHOR: Anne Carroll
+DATE: 03/21/2019
+################################################################################################
+
+################################################################################################
+#The following section tags comments for each discipline - you may want to add the teachers name anywhere it's relevent. 
+## Note 1: \\s+ indicates a space. 
+## Note 2: Matches are greedy.
+## Note 3: You can either replace your variable name with comments... or replace every "comment" in here with your variable name. Completely up to you.
+################################################################################################
+
+#Search for Anatomy
+comments_long$Anatomy<-ifelse(grepl("anato|Anato|embry", 
+                                    comments_long$comments), "Review","")
+#Search for Bioch
+comments_long$Bioch<-ifelse(grepl("bioch", 
+                                   comments_long$comments), "Review","")
+#Search for Geneti
+comments_long$Geneti<-ifelse(grepl("geneti|geneti", 
+                                  comments_long$comments), "Review","")
+#Search for Histo
+comments_long$Histo<-ifelse(grepl("Histol|histol", 
+                            comments_long$comments), "Review","")
+#Search for Immun
+comments_long$Micro_Immunology<-ifelse(grepl("Immuno|immuno|\\s+micro+\\s|cytokines|
+                                              bugs|\\s+microbio+\\s|virus|parasites|maureen", 
+                                              comments_long$comments), "Review","")      
+#Search for Neuro
+comments_long$Neuro<-ifelse(grepl("nero", 
+                            comments_long$comments), "Review","") 
+#Search for nutrition
+comments_long$Nutrition<-ifelse(grepl("nutrition", 
+                                comments_long$comments), "Review","")     
+#Search for Path
+comments_long$Path<-ifelse(grepl("\\s+path+\\s|pathology", 
+                                 comments_long$comments), "Review","")
+#Search for Pathophy
+comments_long$Pathophysiology<-ifelse(grepl("\\s+pathophy", 
+                                            comments_long$comments), "Review","")  
+#Search for Pediatrics
+comments_long$Peds<-ifelse(grepl("pedi|children", 
+                           comments_long$comments), "Review","")     
+#Search for Phar
+comments_long$Phar<-ifelse(grepl("phar|phar|drug", 
+                                  comments_long$comments), "Review","")
+#Search for Physio
+comments_long$Physio<-ifelse(grepl("\\s+physio|\\s+physio|", 
+                                  comments_long$comments), "Review","")
+#Search for psychopathology
+comments_long$Psychopathology<-ifelse(grepl("psychopathology", 
+                                            comments_long$comments), "Review","")          
+#Search for GYN
+comments_long$Womens_Health<-ifelse(grepl("gyne|women\\'s health|obgyn|\\s+gyn+\\s", 
+                                           comments_long$comments), "Review","")
+#Search for practitioner 
+comments_long$Practitioner<-ifelse(grepl("clinical reasoning|differential diagnosis|
+                                          \\s+dx\\s|h\\&p|physical exam|pe+\\s|
+                                           maneuver|clinical skill|\\s+sp+\\s|hpi|\\s+dx+\\s", 
+                                           comments_long$comments), "Review","")
+#Search for Scholar
+comments_long$Scholar<-ifelse(grepl("\\s+ebm|stats|statist", 
+                                     comments_long$comments), "Review","")
+                            
+#####################################################################################################################            
+#write.csv(comments_long, "test.csv")
